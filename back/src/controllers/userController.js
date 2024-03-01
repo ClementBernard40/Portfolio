@@ -1,8 +1,6 @@
 // Importing required models and libraries
 require('dotenv').config;
 const User = require('../models/userModel');
-const jwt = require('jsonwebtoken');
-const bcrypt = require('bcrypt');
 
 // Setting the number of salt rounds for password hashing
 const saltRounds = 10;
