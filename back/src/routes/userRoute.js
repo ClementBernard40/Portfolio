@@ -1,8 +1,6 @@
 const express = require('express');
 const router = express.Router();
 const userController = require('../controllers/userController');
-const jwtMiddleware = require('../middlewares/jwtMiddleware');
-
 
 /**
  * @openapi
@@ -64,8 +62,8 @@ router
 
 router 
     .route("/:id_users")
-        .delete(jwtMiddleware.verifyToken,userController.deleteAUser)//route to delete a user
-        .put(jwtMiddleware.verifyToken,userController.updateAUser)//route to update a user
+        .delete(userController.deleteAUser)//route to delete a user
+        .put(userController.updateAUser)//route to update a user
 
 
 

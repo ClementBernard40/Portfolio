@@ -1,8 +1,7 @@
 // Importing required models and libraries
 require('dotenv').config;
 const User = require('../models/userModel');
-const jwt = require('jsonwebtoken');
-const bcrypt = require('bcrypt');
+// const bcrypt = require('bcrypt');
 
 // Setting the number of salt rounds for password hashing
 const saltRounds = 10;
@@ -15,11 +14,11 @@ exports.userRegister = async (req, res) => {
         let userPwd = newUser.password;
 
         // Generating a salt and hashing the user's password
-        let salt = await bcrypt.genSalt(saltRounds);
-        let hash = await bcrypt.hash(userPwd, salt);
+       // let salt = await bcrypt.genSalt(saltRounds);
+        //let hash = await bcrypt.hash(userPwd, salt);
 
         // Updating the user's password with the hashed version
-        newUser.password = hash;
+        //newUser.password = hash;
 
         // Saving the user to the database
         let user = await newUser.save();
@@ -54,8 +53,6 @@ exports.userLogin = async (req, res) => {
                 name: user.name
             };
             
-            // Signing the JWT token with the secret key and setting an expiration time
-            const token = await jwt.sign(userData, process.env.JWT_KEY, { expiresIn: '10h' });
             res.status(200).json({ token });
         } else {
             res.status(401).json({ message: 'Incorrect email or password.' });

@@ -51,15 +51,12 @@ app.use('/api-docs', swaggerUi.serve);
 app.get('/api-docs', swaggerUi.setup(swaggerSpec));
 
 
-
-const groupRoute = require('./routes/groupRoute');
 const userRoute = require('./routes/userRoute');
-const santaRoute = require('./routes/santaRoute');
+const projectRoute = require('./routes/projectRoute');
 
 
-app.use('/group', groupRoute);
 app.use('/users', userRoute);
-app.use('/', santaRoute);
+app.use('/p', projectRoute);
 
 
 
