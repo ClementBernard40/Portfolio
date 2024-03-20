@@ -4,7 +4,7 @@ const port = 3000;
 const host = '0.0.0.0';
 
 const mongoose = require("mongoose");
-mongoose.connect("mongodb://127.0.0.1:27017/SecretSanta");
+mongoose.connect("mongodb://127.0.0.1:27017/Portfolio");
 
 app.use(express.urlencoded());
 app.use(express.json());
@@ -18,7 +18,7 @@ const swaggerJSDoc = require('swagger-jsdoc');
 const swaggerDefinition = {
     openapi: '3.0.0',
     info: {
-      title: 'Secret Santa API',
+      title: 'Portfolio API',
       version: '1.0.0',
       description:
         'This is a REST API application made with Express. It retrieves data from a Secret Santa between friends.',
@@ -52,11 +52,13 @@ app.get('/api-docs', swaggerUi.setup(swaggerSpec));
 
 
 const userRoute = require('./routes/userRoute');
+
 const projectRoute = require('./routes/projectRoute');
 
 
 app.use('/users', userRoute);
 app.use('/p', projectRoute);
+
 
 
 
