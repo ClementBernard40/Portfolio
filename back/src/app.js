@@ -54,11 +54,17 @@ app.get('/api-docs', swaggerUi.setup(swaggerSpec));
 const userRoute = require('./routes/userRoute');
 const contactRoute = require('./routes/contactRoute');
 const projectRoute = require('./routes/projectRoute');
+const schoolPRoute = require('./routes/schoolPRoute');
+const profPRoute = require('./routes/profPRoute');
+const stack = require('./routes/stackRoute');
+
+
 
 
 app.use('/users', userRoute);
-app.use('/p', projectRoute);
-app.use('/c', contactRoute);
+app.use('/', schoolPRoute, profPRoute, contactRoute, projectRoute, stack);
+
+
 
 
 

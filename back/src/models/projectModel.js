@@ -2,10 +2,9 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 let projectSchema = new Schema ({
-    url: {
+    adress: {
         type: String,
         required: true,
-        unique: true
     },
     name: {
         type: String,
