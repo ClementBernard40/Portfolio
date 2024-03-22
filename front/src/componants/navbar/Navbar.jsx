@@ -33,7 +33,10 @@ function Navbar() {
               <a className="nav-link" href="#projets">Mes Projets</a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#competences">Mes Compétences</a>
+              <a className="nav-link" href="#competences">Mes Compétences</a> parcourSco
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" href="#parcourSco">Mon parcour scolaire</a> 
             </li>
             <li className="nav-item">
               <a className="nav-link" href="#informations">Mes Informations</a>
