@@ -4,7 +4,7 @@ const port = 3001;
 const host = '0.0.0.0';
 
 const mongoose = require("mongoose");
-mongoose.connect("mongodb://127.0.0.1:27017/Portfolio");
+mongoose.connect("mongodb+srv://cbernard817:k5C323vRDRSSecDQ@portfolio.utfixsj.mongodb.net/?retryWrites=true&w=majority&appName=Portfolio");
 
 app.use(express.urlencoded());
 app.use(express.json());
@@ -48,9 +48,14 @@ const options = {
 app
 const swaggerSpec = swaggerJSDoc(options);
 app.use('/api-docs', swaggerUi.serve);
+
 app.get('/api-docs', swaggerUi.setup(swaggerSpec));
 
-
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
 const userRoute = require('./routes/userRoute');
 const contactRoute = require('./routes/contactRoute');
 const projectRoute = require('./routes/projectRoute');
